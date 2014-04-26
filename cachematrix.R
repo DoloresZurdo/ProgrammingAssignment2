@@ -30,7 +30,7 @@ inv<-X$setinverse() #hte function search if there is an inverse saved in cache m
   X$setinverse(inv) 
   inv
 }
-        ## Return a matrix that is the inverse of 'x'
+        ## Return a matrix that is the inverse of 'x' 
         
         solve<<-function(inverse) inv
 }
