@@ -11,7 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
   setinverse<- function(inverse) inv<<-inverse(A) #setinverse is a function which set the inverse of the matrix. 
   getinverse<- function() inv #getinverse get the function inverse of the matrix
   list(set=set, get=get, 
-       setinverse=setinverse
+       setinverse=setinverse,
        getinverse=getinverse)
 
 }
