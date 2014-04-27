@@ -4,7 +4,7 @@ makeCacheMatrix <- function(x = matrix()) {
   inv<- NULL # I stablish inv variable as "inverse" with null value
   set<<-function(B){ #I set the value of the matrix as the matrix 
                      # is introduce to call makeCacheMatrix
-    B<<-X
+    B<-X
     inv<<-NULL
   }
   get<-function()X #I get the function and return the value of 
