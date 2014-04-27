@@ -1,0 +1,43 @@
+#I have use this code to test my Peer Assessment
+
+rm(list=ls())
+setwd("~Desktop/Courses_Online/Data_Science_Specialization/02_R_Programming/Peer_Assessment")
+
+source("cachematrix.R")
+
+#For makeCacheMatrix
+b1=c(1,0,0)
+b2=c(2,3,0)
+b3=c(4,5,6)
+B=rbind(b1,b2,b3)
+c1=c(9,0,0)
+c2=c(1,6,0)
+c3=c(1,7,3)
+C=rbind(c1,c2,c3)
+i1=c(1,0,0)
+i2=c(0,1,0)
+i3=c(0,0,1)
+I=rbind(i1,i2,i3)
+
+my_cache_matrix<-makeCacheMatrix(B)
+
+#my_cache_matrix$set(B)
+my_cache_matrix$get()
+my_cache_matrix$getinverse()
+my_cache_matrix$setinverse(I)
+my_cache_matrix$getinverse()
+
+my_cache_matrix$set(C)
+my_cache_matrix$get()
+my_cache_matrix$getinverse()
+my_cache_matrix$setinverse(I)
+my_cache_matrix$getinverse()
+
+#For cacheSolve
+my_cache_matrix$set(B)
+Binv<-cacheSolve(my_cache_matrix)
+Binv%*%B
+B   %*%Binv
+Binv<-my_cache_matrix$getinverse()
+Binv%*%B
+B   %*%Binv
