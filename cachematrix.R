@@ -36,7 +36,7 @@ inv<-X$setinverse() # the function search if there is
   X$setinverse(inv) 
   inv
 }
-        ## Return a matrix that is the inverse of 'x' 
+        ## Return a matrix that is the inverse of 'x'. 
         
         solve<<-function(inverse) inv
 }
