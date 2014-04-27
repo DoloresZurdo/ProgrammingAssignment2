@@ -1,20 +1,20 @@
-## This function set and return the inverse of a matrix, and save it in cache
+#This function return a list of functions:set, get, setinverse, getinverse
+#inv is "inverse" variable.
+#makeCacheMatrix search if we have set a previous value.
+#If we have not set a value, getinverse return "null".
 
 makeCacheMatrix <- function(x = matrix()) {
-  inv<- NULL # I stablish inv variable as "inverse" with null value
-  set<-function(B){ #I set the value of the matrix as the matrix 
-    # is introduce to call makeCacheMatrix
-    x<<-B
-    inv<<-NULL
+  inv<- NULL # first time inverse value is null
+  set<-function(B){ 
+    x<<-B #I set the matrix introduced by user.
+    inv<<-NULL #inverse value is null
   }
-  get<-function()x #I get the function and return the value of 
-  # the matrix which call makeCacheMatrix
-  #Inv is the variable for inverse
-  setinverse<- function(inverse) {inv<<-inverse # setinverse is a function which 
-                                                # set the inverse of the matrix.
+  get<-function()x 
+  setinverse<- function(inverse) {inv<<-inverse 
                                   
   } 
-  getinverse<- function() inv #getinverse get the function inverse of the matrix
+  getinverse<- function() inv 
+  #makeCacheMatrix return the following list
   list(set=set, get=get, 
        setinverse=setinverse,
        getinverse=getinverse)
@@ -22,23 +22,18 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
-cacheSolve <- function(x, ...) {
-inv<-X$setinverse() # the function search if there is 
-                    # an inverse saved in cache memory
-  if(!is.null(X)){ #if there is not an inverse matrix in cache 
-                   # memeory then it will pop-up a message indicating 
-                   # is getting cache matrix
+#This function use "solve" to return the inverse of a matrix
+cacheSolve <- function(y, ...) {
+  inv <- y$getinverse() # the function search if there is 
+  # an inverse saved in cache memory
+  if(!is.null(inv)) { #if there is not an inverse matrix in cache 
+    # memeory then it will pop-up a message indicating 
+    # is getting cache matrix
     message("getting cache matrix")
     return(inv) #it will return the inverse matrix
   }
-  dataMatrix<-X$get() #dataMatrix get the value of the function above
-  inv<-inverse(dataMatrix,...) #inv will return the inveerse of the matrix
-  X$setinverse(inv) 
-  inv
-}
-        ## Return a matrix that is the inverse of 'x'. 
-        
-        solve<<-function(inverse) inv
+  dataMatrix<-y$get() #dataMatrix get the value of the function above
+  inv <- solve(dataMatrix) #solve is used to obtain the inverse matrix
+  y$setinverse(inv) 
+  return(inv) #cacheSolve return the inverse matrix
 }
