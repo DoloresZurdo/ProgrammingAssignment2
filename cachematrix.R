@@ -28,7 +28,7 @@ inv<-X$setinverse() # the function search if there is
   if(!is.null(X)){ #if there is not an inverse matrix in cache 
                    # memeory then it will pop-up a message indicating 
                    # is getting cache matrix
-    messge("getting cache matrix")
+    message("getting cache matrix")
     return(inv) #it will return the inverse matrix
   }
   dataMatrix<-X$get() #dataMatrix get the value of the function above
